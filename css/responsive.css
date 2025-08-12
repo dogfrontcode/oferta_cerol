@@ -1,0 +1,489 @@
+/* Responsive Design */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .product-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .product-gallery {
+        position: static;
+    }
+    
+    .header-content {
+        gap: 20px;
+    }
+    
+    .search-bar {
+        max-width: 400px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+    }
+    
+    .nav-menu a {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .product-title {
+        font-size: 36px;
+    }
+    
+    .details-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .header-top {
+        display: none;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .search-bar {
+        max-width: 100%;
+        order: 3;
+    }
+    
+    .header-actions {
+        order: 2;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .logo {
+        order: 1;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+    }
+    
+    .nav-menu a {
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .main-content {
+        padding: 20px 0;
+    }
+    
+    .product-layout {
+        gap: 20px;
+    }
+    
+    .main-image {
+        height: 300px;
+    }
+    
+    .product-title {
+        font-size: 28px;
+    }
+    
+    .price-main {
+        font-size: 28px;
+    }
+    
+    .purchase-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .quantity-selector {
+        align-self: center;
+    }
+    
+    .add-to-cart-btn {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .favorites-btn {
+        align-self: center;
+    }
+    
+    .size-selector {
+        flex-direction: column;
+    }
+    
+    .size-option {
+        text-align: center;
+    }
+    
+    .accessory-selector {
+        gap: 10px;
+    }
+    
+    .accessory-option {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .accessory-option input[type="radio"] {
+        align-self: flex-start;
+        margin-bottom: 10px;
+    }
+    
+    .details-tabs {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        border-bottom: 1px solid #e5e5e5;
+        border-radius: 0;
+        text-align: left;
+    }
+    
+    .tab-btn.active {
+        border-bottom-color: #e5e5e5;
+        border-left: 3px solid #0058a3;
+    }
+    
+    .tab-panel {
+        padding: 20px;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .thumbnail-container {
+        justify-content: center;
+    }
+    
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .image-controls {
+        position: static;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    
+    .control-btn {
+        background: #f8f8f8;
+        border: 1px solid #e5e5e5;
+    }
+    
+    .rating-overview {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .assembly-links {
+        align-items: center;
+    }
+    
+    .pdf-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    .header-main {
+        padding: 10px 0;
+    }
+    
+    .logo-img {
+        height: 30px;
+    }
+    
+    .search-input {
+        padding: 10px 40px 10px 12px;
+        font-size: 14px;
+    }
+    
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+    
+    .main-content {
+        padding: 15px 0;
+    }
+    
+    .product-title {
+        font-size: 24px;
+    }
+    
+    .product-subtitle {
+        font-size: 16px;
+    }
+    
+    .price-main {
+        font-size: 24px;
+    }
+    
+    .main-image {
+        height: 250px;
+    }
+    
+    .thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .control-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+    
+    .option-label {
+        font-size: 14px;
+    }
+    
+    .size-option {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .accessory-option label {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .qty-btn {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+    
+    #quantity {
+        padding: 10px 12px;
+        width: 50px;
+        font-size: 14px;
+    }
+    
+    .add-to-cart-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .favorites-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .delivery-option {
+        padding: 12px;
+    }
+    
+    .delivery-icon {
+        font-size: 20px;
+        width: 30px;
+    }
+    
+    .tab-panel {
+        padding: 15px;
+    }
+    
+    .tab-panel h3 {
+        font-size: 20px;
+    }
+    
+    .features-list li {
+        padding: 8px 0;
+        padding-left: 20px;
+        font-size: 14px;
+    }
+    
+    .review-item {
+        padding: 15px;
+    }
+    
+    .rating-score {
+        font-size: 36px;
+    }
+    
+    .stars-large {
+        font-size: 20px;
+    }
+    
+    .related-products h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .product-card h3 {
+        font-size: 16px;
+        padding: 12px 12px 5px;
+    }
+    
+    .product-card p {
+        padding: 0 12px;
+        font-size: 13px;
+    }
+    
+    .product-card .price {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+    
+    .add-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer-section h4 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-section li {
+        margin-bottom: 8px;
+    }
+    
+    .footer-section a {
+        font-size: 14px;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .main-image {
+        height: 200px;
+    }
+    
+    .product-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    
+    .purchase-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .add-to-cart-btn {
+        flex: 1;
+        min-width: 150px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .action-btn,
+    .control-btn,
+    .size-option,
+    .add-to-cart-btn,
+    .favorites-btn,
+    .qty-btn,
+    .tab-btn,
+    .add-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .thumbnail {
+        min-width: 60px;
+        min-height: 60px;
+    }
+    
+    .search-input {
+        min-height: 44px;
+    }
+    
+    .nav-menu a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .main-image,
+    .thumbnail,
+    .logo-img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .main-nav,
+    .breadcrumb,
+    .image-controls,
+    .purchase-section,
+    .delivery-info,
+    .footer {
+        display: none;
+    }
+    
+    .product-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-image {
+        max-height: 300px;
+    }
+    
+    .product-info {
+        page-break-inside: avoid;
+    }
+    
+    .tab-panel {
+        display: block !important;
+        page-break-before: always;
+    }
+    
+    .tab-panel:first-child {
+        page-break-before: auto;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    /* Mantém o design claro do IKEA mesmo no modo escuro */
+    /* Pode ser implementado futuramente se necessário */
+}
+
