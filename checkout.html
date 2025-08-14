@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-PT" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Checkout - IKEA Portugal</title>
+    <meta name="description" content="Finalize sua compra na IKEA Portugal">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.838d8a3778e4d716eb72.ico">
+    <link rel="icon" type="image/svg+xml" href="ikea.svg">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ikea-blue': '#0058a3',
+                        'ikea-yellow': '#fbd914',
+                        'ikea-dark': '#111',
+                        'ikea-gray': '#f5f5f5'
+                    },
+                    fontFamily: {
+                        'noto': ['Noto Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-ikea-dark font-noto leading-relaxed antialiased">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="flex-shrink-0">
+                        <img src="ikea.svg" alt="IKEA" class="h-8 w-auto">
+                    </a>
+                    <span class="text-lg font-medium text-gray-700">Checkout</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-500">Passo 2 de 3</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-6 sm:py-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Carrinho e Produtos -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Resumo do Carrinho -->
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Resumo do Carrinho</h2>
+                        <div id="cart-items" class="space-y-4">
+                            <!-- Items do carrinho serão inseridos aqui -->
+                        </div>
+                    </div>
+
+                    <!-- Informações de Entrega -->
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Informações de Entrega</h2>
+                        <div class="space-y-6">
+                            <!-- Informações do Cliente -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Informações do Cliente</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome *</label>
+                                        <input type="text" id="firstName" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Apelido *</label>
+                                        <input type="text" id="lastName" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" required>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Endereço de e-mail *</label>
+                                        <input type="email" id="email" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Número de telemóvel *</label>
+                                        <div class="relative">
+                                            <input type="tel" id="phone" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" required>
+                                            <div class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Endereço de Entrega -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Endereço de Entrega</h3>
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Endereço (rua/avenida/praceta, número de porta, andar) *</label>
+                                        <input type="text" id="address" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" placeholder="Ex: Rua das Flores N.º 10, 1º esq" required>
+                                        <p class="text-xs text-gray-500 mt-1">Exemplo: Rua das Flores N.º 10, 1º esq</p>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Código postal *</label>
+                                            <input type="text" id="postalCode" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" placeholder="1000-065" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Localidade *</label>
+                                            <input type="text" id="city" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" required>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">País</label>
+                                            <select id="country" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue">
+                                                <option value="PT">Portugal</option>
+                                                <option value="ES">Espanha</option>
+                                                <option value="FR">França</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                                                         <!-- Tipo de Habitação -->
+                                     <div>
+                                         <label class="block text-sm font-medium text-gray-700 mb-3">Em que tipo de habitação vive? *</label>
+                                         <div class="space-y-3">
+                                             <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                                                 <input type="radio" name="housingType" value="apartment" class="w-5 h-5 text-ikea-blue focus:ring-ikea-blue focus:ring-2" required>
+                                                 <span class="ml-3 text-base text-gray-700 font-medium">Apartamento</span>
+                                             </label>
+                                             <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                                                 <input type="radio" name="housingType" value="house" class="w-5 h-5 text-ikea-blue focus:ring-ikea-blue focus:ring-2">
+                                                 <span class="ml-3 text-base text-gray-700 font-medium">Casa</span>
+                                             </label>
+                                             <label class="flex items-center p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                                                 <input type="radio" name="housingType" value="office" class="w-5 h-5 text-ikea-blue focus:ring-ikea-blue focus:ring-2">
+                                                 <span class="ml-3 text-base text-gray-700 font-medium">Escritório</span>
+                                             </label>
+                                         </div>
+                                     </div>
+                                </div>
+                            </div>
+
+                            <!-- Informação Fiscal -->
+                            <div>
+                                <h3 class="text-lg font-medium text-gray-900 mb-3">Informação Fiscal</h3>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de documento *</label>
+                                    <select id="documentType" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" required>
+                                        <option value="NIF">NIF</option>
+                                        <option value="passport">Passaporte / Outro documento</option>
+                                    </select>
+                                </div>
+                                <div class="mt-4">
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Número do documento *</label>
+                                    <input type="text" id="documentNumber" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:border-ikea-blue" placeholder="Ex: 123456789" required>
+                                </div>
+                            </div>
+
+                                                         <!-- Endereço de Faturação -->
+                             <div>
+                                 <h3 class="text-lg font-medium text-gray-900 mb-3">Endereço de Faturação/Pagamento</h3>
+                                 <div class="p-3 border border-gray-200 rounded-lg">
+                                     <label class="flex items-center cursor-pointer">
+                                         <input type="checkbox" id="sameBillingAddress" class="w-5 h-5 text-ikea-blue focus:ring-ikea-blue focus:ring-2" checked>
+                                         <span class="ml-3 text-base text-gray-700 font-medium">A morada para faturação é igual à morada de entrega</span>
+                                     </label>
+                                     <p class="text-xs text-gray-500 mt-2 ml-8">
+                                         <a href="#" class="text-ikea-blue hover:underline">Saber mais</a>
+                                     </p>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Opções de Entrega -->
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Opções de Entrega</h2>
+                        <div class="space-y-3">
+                            <label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                                <input type="radio" name="delivery" value="standard" checked class="text-ikea-blue focus:ring-ikea-blue focus:ring-2">
+                                <div class="ml-3 flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <span class="font-medium text-gray-900">Entrega Standard</span>
+                                            <p class="text-sm text-gray-600">3-5 dias úteis</p>
+                                        </div>
+                                        <span class="text-lg font-semibold text-gray-900">9,99€</span>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                                <input type="radio" name="delivery" value="express" class="text-ikea-blue focus:ring-ikea-blue focus:ring-2">
+                                <div class="ml-3 flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <span class="font-medium text-gray-900">Entrega Express</span>
+                                            <p class="text-sm text-gray-600">1-2 dias úteis</p>
+                                        </div>
+                                        <span class="text-lg font-semibold text-gray-900">19,99€</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumo da Compra -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 sticky top-24">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Resumo da Compra</h2>
+                        
+                        <!-- Subtotal -->
+                        <div class="flex justify-between py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Subtotal</span>
+                            <span id="subtotal" class="font-medium">0,00€</span>
+                        </div>
+                        
+                        <!-- Entrega -->
+                        <div class="flex justify-between py-2 border-b border-gray-200">
+                            <span class="text-gray-600">Entrega</span>
+                            <span id="shipping" class="font-medium">9,99€</span>
+                        </div>
+                        
+                                                 <!-- IVA -->
+                         <div class="flex justify-between py-2 border-b border-gray-200">
+                             <span class="text-gray-600">IVA (23%)</span>
+                             <span id="tax" class="font-medium">0,00€</span>
+                         </div>
+                         
+                         <!-- Opção de IVA -->
+                         <div class="py-3 border-b border-gray-200">
+                             <label class="flex items-center cursor-pointer">
+                                 <input type="checkbox" id="vatIncluded" class="w-5 h-5 text-ikea-blue focus:ring-ikea-blue focus:ring-2">
+                                 <span class="ml-3 text-base text-gray-700 font-medium">IVA não incluído</span>
+                             </label>
+                         </div>
+                         
+                         <!-- Total -->
+                         <div class="flex justify-between py-4 border-b border-gray-200">
+                             <span class="text-lg font-semibold text-gray-900">Total</span>
+                             <span id="total" class="text-2xl font-bold text-ikea-blue">0,00€</span>
+                         </div>
+                        
+                                                 <!-- Política de Privacidade -->
+                         <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                             <label class="flex items-start cursor-pointer">
+                                 <input type="checkbox" id="privacyPolicy" class="w-5 h-5 text-ikea-blue focus:ring-ikea-blue focus:ring-2 mt-1" required>
+                                 <span class="ml-3 text-base text-gray-700 leading-relaxed">
+                                     Ao clicar Continuar concorda com a nossa 
+                                     <a href="#" class="text-ikea-blue hover:underline font-medium">Política de privacidade</a>
+                                 </span>
+                             </label>
+                         </div>
+                         
+                         <!-- Botão de Pagamento -->
+                         <button id="payment-btn" class="w-full bg-gray-400 text-white py-4 px-6 rounded-lg font-medium text-lg cursor-not-allowed mt-4" disabled>
+                             Continuar para Pagamento
+                         </button>
+                        
+                        <!-- Informações adicionais -->
+                        <div class="mt-4 text-xs text-gray-500 text-center">
+                            <p>✓ Entrega gratuita para compras superiores a 200€</p>
+                            <p>✓ Devoluções gratuitas em 365 dias</p>
+                            <p>✓ Garantia IKEA incluída</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-gray-400">
+                <p>© 2025 IKEA Portugal. Todos os direitos reservados.</p>
+                <p class="mt-2 text-sm">Pagamento seguro e encriptado</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg max-w-md w-full mx-4 p-6 transform transition-all duration-300">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Compra Confirmada!</h3>
+                <p class="text-gray-600 mb-6">O seu pedido foi processado com sucesso. Receberá um email de confirmação em breve.</p>
+                <div class="space-y-3">
+                    <button id="view-order" class="w-full bg-ikea-blue text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200">
+                        Ver Detalhes do Pedido
+                    </button>
+                    <button id="continue-shopping" class="w-full border border-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-50 transition-colors duration-200">
+                        Continuar a Comprar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Estilos para botões desabilitados */
+        button[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        /* Estilos para controles de quantidade */
+        .decrease-qty:not([disabled]):hover,
+        .increase-qty:not([disabled]):hover {
+            background-color: #f3f4f6;
+            color: #111827;
+        }
+        
+        .decrease-qty:not([disabled]):active,
+        .increase-qty:not([disabled]):active {
+            transform: scale(0.95);
+        }
+        
+        /* Estilo para botão remover */
+        .remove-item:hover {
+            color: #dc2626;
+        }
+        
+        /* Estilos mobile para checkboxes e radio buttons */
+        @media (max-width: 768px) {
+            input[type="checkbox"], input[type="radio"] {
+                min-width: 24px;
+                min-height: 24px;
+            }
+            
+            /* Melhorar espaçamento em mobile */
+            .py-3 {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            
+            /* Texto maior em mobile para melhor legibilidade */
+            .text-base {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+            
+            /* Melhorar espaçamento dos labels */
+            label {
+                padding: 0.5rem 0;
+            }
+            
+            /* Botões maiores em mobile */
+            button {
+                min-height: 48px;
+            }
+            
+            /* Ajustes específicos para mobile */
+            .px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .px-6 {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+            
+            /* Garantir que o texto não passe dos limites */
+            .text-sm, .text-base, .text-lg {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+            
+            /* Ajustar margens para evitar overflow */
+            .ml-3 {
+                margin-left: 0.75rem;
+            }
+            
+            .ml-8 {
+                margin-left: 2rem;
+            }
+            
+            /* Garantir que os preços não passem */
+            .text-right {
+                text-align: right;
+                min-width: fit-content;
+            }
+            
+            /* Ajustar grid para mobile */
+            .grid-cols-1 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Espaçamento mais compacto em mobile */
+            .space-y-6 > * + * {
+                margin-top: 1.5rem;
+            }
+            
+            .space-y-4 > * + * {
+                margin-top: 1rem;
+            }
+            
+            /* Ajustes específicos para itens do carrinho em mobile */
+            .flex.items-start {
+                align-items: flex-start;
+            }
+            
+            .space-x-3 > * + * {
+                margin-left: 0.75rem;
+            }
+            
+            /* Garantir que as imagens não encolham */
+            .flex-shrink-0 {
+                flex-shrink: 0;
+            }
+            
+            /* Garantir que o texto não passe dos limites */
+            .min-w-0 {
+                min-width: 0;
+            }
+            
+            /* Layout responsivo para controles de quantidade */
+            .flex-col.sm\:flex-row {
+                flex-direction: column;
+            }
+            
+            @media (min-width: 640px) {
+                .sm\:flex-row {
+                    flex-direction: row;
+                }
+                
+                .sm\:space-y-0 > * + * {
+                    margin-top: 0;
+                }
+                
+                .sm\:space-x-2 > * + * {
+                    margin-left: 0.5rem;
+                }
+            }
+            
+            /* Ajustar margens para mobile */
+            .ml-2 {
+                margin-left: 0.5rem;
+            }
+        }
+        
+        /* Melhorar acessibilidade dos checkboxes */
+        input[type="checkbox"]:focus,
+        input[type="radio"]:focus {
+            outline: 2px solid #0058a3;
+            outline-offset: 2px;
+        }
+        
+        /* Hover states para checkboxes */
+        label:hover {
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = JSON.parse(localStorage.getItem('ikeaCart')) || { items: [], total: 0, shipping: 9.99, tax: 0 };
+            
+            // Função para renderizar itens do carrinho
+            function renderCartItems() {
+                const cartContainer = document.getElementById('cart-items');
+                if (!cartContainer) return;
+                
+                if (cart.items.length === 0) {
+                    cartContainer.innerHTML = `
+                        <div class="text-center py-8">
+                            <p class="text-gray-500">O carrinho está vazio</p>
+                            <a href="index.html" class="text-ikea-blue hover:underline mt-2 inline-block">Voltar às compras</a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                cartContainer.innerHTML = cart.items.map((item, index) => `
+                    <div class="flex items-start space-x-3 p-4 border border-gray-200 rounded-lg">
+                        <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md flex-shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-medium text-gray-900 text-base">${item.name}</h3>
+                            ${item.size ? `<p class="text-sm text-gray-600 mt-1">Tamanho: ${item.size}</p>` : ''}
+                            
+                            <!-- Controles de quantidade -->
+                            <div class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2 mt-3">
+                                <span class="text-sm text-gray-600">Quantidade:</span>
+                                <div class="flex items-center border border-gray-300 rounded-lg bg-white shadow-sm">
+                                    <button class="px-2 py-1 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:ring-offset-2 decrease-qty" 
+                                            data-index="${index}" 
+                                            ${item.quantity <= 1 ? 'disabled' : ''}>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                        </svg>
+                                    </button>
+                                    <span class="px-3 py-1 bg-gray-50 border-x border-gray-300 text-sm font-medium">${item.quantity}</span>
+                                    <button class="px-2 py-1 text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-ikea-blue focus:ring-offset-2 increase-qty" 
+                                            data-index="${index}"
+                                            ${item.name === 'BRIMNES' && item.quantity >= 3 ? 'disabled' : ''}>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                <!-- Botão remover -->
+                                <button class="text-red-600 hover:text-red-800 text-sm hover:underline remove-item" data-index="${index}">
+                                    Remover
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-right flex-shrink-0 ml-2">
+                            <p class="font-medium text-gray-900 text-base">${(item.price * item.quantity).toFixed(2)}€</p>
+                            <p class="text-sm text-gray-600">${item.price.toFixed(2)}€ cada</p>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Adicionar event listeners para os controles de quantidade
+                addQuantityEventListeners();
+            }
+            
+            // Função para adicionar event listeners aos controles de quantidade
+            function addQuantityEventListeners() {
+                // Botões de diminuir quantidade
+                document.querySelectorAll('.decrease-qty').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.closest('.decrease-qty').dataset.index);
+                        decreaseQuantity(index);
+                    });
+                });
+                
+                // Botões de aumentar quantidade
+                document.querySelectorAll('.increase-qty').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.closest('.increase-qty').dataset.index);
+                        increaseQuantity(index);
+                    });
+                });
+                
+                // Botões de remover item
+                document.querySelectorAll('.remove-item').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.closest('.remove-item').dataset.index);
+                        removeItem(index);
+                    });
+                });
+            }
+            
+            // Função para diminuir quantidade
+            function decreaseQuantity(index) {
+                if (index >= 0 && index < cart.items.length) {
+                    if (cart.items[index].quantity > 1) {
+                        cart.items[index].quantity--;
+                        updateCart();
+                    }
+                }
+            }
+            
+            // Função para aumentar quantidade
+            function increaseQuantity(index) {
+                if (index >= 0 && index < cart.items.length) {
+                    const item = cart.items[index];
+                    
+                    // Verificar limite para BRIMNES (máximo 3)
+                    if (item.name === 'BRIMNES' && item.quantity >= 3) {
+                        showNotification('Quantidade máxima para BRIMNES é 3 unidades.', 'warning');
+                        return;
+                    }
+                    
+                    // Para LURÖY não há limite
+                    if (item.name === 'LURÖY' || item.name === 'KLEPPSTAD') {
+                        item.quantity++;
+                    } else if (item.name === 'BRIMNES' && item.quantity < 3) {
+                        item.quantity++;
+                    }
+                    
+                    updateCart();
+                }
+            }
+            
+            // Função para remover item
+            function removeItem(index) {
+                if (index >= 0 && index < cart.items.length) {
+                    cart.items.splice(index, 1);
+                    updateCart();
+                    
+                    // Mostrar mensagem se o carrinho ficar vazio
+                    if (cart.items.length === 0) {
+                        showNotification('Todos os itens foram removidos do carrinho.', 'info');
+                    }
+                }
+            }
+            
+            // Função para atualizar carrinho
+            function updateCart() {
+                // Salvar no localStorage
+                localStorage.setItem('ikeaCart', JSON.stringify(cart));
+                
+                // Re-renderizar itens
+                renderCartItems();
+                
+                // Atualizar resumo
+                updateOrderSummary();
+            }
+            
+            // Função para mostrar notificações
+            function showNotification(message, type = 'info') {
+                // Remover notificações existentes
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(notification => notification.remove());
+                
+                // Criar nova notificação
+                const notification = document.createElement('div');
+                notification.className = `notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 translate-x-full`;
+                
+                // Definir cores baseadas no tipo
+                let bgColor, textColor, icon;
+                switch (type) {
+                    case 'success':
+                        bgColor = 'bg-green-500';
+                        textColor = 'text-white';
+                        icon = '✅';
+                        break;
+                    case 'error':
+                        bgColor = 'bg-red-500';
+                        textColor = 'text-white';
+                        icon = '❌';
+                        break;
+                    case 'warning':
+                        bgColor = 'bg-yellow-500';
+                        textColor = 'text-white';
+                        icon = '⚠️';
+                        break;
+                    default:
+                        bgColor = 'bg-blue-500';
+                        textColor = 'text-white';
+                        icon = 'ℹ️';
+                }
+                
+                notification.className += ` ${bgColor} ${textColor}`;
+                notification.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <span class="text-lg">${icon}</span>
+                        <span class="font-medium">${message}</span>
+                        <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                // Adicionar ao DOM
+                document.body.appendChild(notification);
+                
+                // Animar entrada
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-full');
+                }, 100);
+                
+                // Auto-remover após 3 segundos
+                setTimeout(() => {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }, 3000);
+            }
+            
+                         // Função para atualizar resumo da compra
+             function updateOrderSummary() {
+                 const subtotal = cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                 const shipping = parseFloat(document.querySelector('input[name="delivery"]:checked').value === 'express' ? '19.99' : '9.99');
+                 const vatIncluded = document.getElementById('vatIncluded').checked;
+                 
+                 let tax, total, displaySubtotal;
+                 
+                 if (vatIncluded) {
+                     // Se IVA incluído, o subtotal já contém IVA
+                     displaySubtotal = subtotal; // Mostrar como está (com IVA)
+                     tax = subtotal * 0.23; // IVA incluído no subtotal
+                     total = subtotal + shipping; // Total = subtotal (com IVA) + entrega
+                 } else {
+                     // Se IVA não incluído, adicionar IVA ao total
+                     displaySubtotal = subtotal; // Mostrar como está (sem IVA)
+                     tax = subtotal * 0.23; // IVA a adicionar
+                     total = subtotal + shipping + tax; // Total = subtotal + entrega + IVA
+                 }
+                 
+                 document.getElementById('subtotal').textContent = `${displaySubtotal.toFixed(2)}€`;
+                 document.getElementById('shipping').textContent = `${shipping.toFixed(2)}€`;
+                 document.getElementById('tax').textContent = `${tax.toFixed(2)}€`;
+                 document.getElementById('total').textContent = `${total.toFixed(2)}€`;
+                 
+                 // Atualizar carrinho
+                 cart.total = total;
+                 cart.shipping = shipping;
+                 cart.tax = tax;
+             }
+            
+                         // Event listeners para opções de entrega
+             document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+                 radio.addEventListener('change', updateOrderSummary);
+             });
+             
+             // Event listener para checkbox de IVA
+             document.getElementById('vatIncluded').addEventListener('change', updateOrderSummary);
+             
+             // Event listener para tipo de documento
+             document.getElementById('documentType').addEventListener('change', function() {
+                 const documentNumber = document.getElementById('documentNumber');
+                 if (this.value === 'NIF') {
+                     documentNumber.placeholder = 'Ex: 123456789';
+                 } else {
+                     documentNumber.placeholder = 'Ex: AB123456';
+                 }
+                 checkFormValidity();
+             });
+             
+             // Função para verificar validade do formulário e ativar/desativar botão
+             function checkFormValidity() {
+                 const paymentBtn = document.getElementById('payment-btn');
+                 const privacyPolicy = document.getElementById('privacyPolicy');
+                 
+                 if (validateForm() && privacyPolicy.checked) {
+                     paymentBtn.disabled = false;
+                     paymentBtn.className = 'w-full bg-ikea-blue text-white py-4 px-6 rounded-lg font-medium text-lg hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98] mt-4';
+                 } else {
+                     paymentBtn.disabled = true;
+                     paymentBtn.className = 'w-full bg-gray-400 text-white py-4 px-6 rounded-lg font-medium text-lg cursor-not-allowed mt-4';
+                 }
+             }
+             
+             // Event listeners para validação em tempo real
+             const formFields = ['firstName', 'lastName', 'email', 'phone', 'address', 'postalCode', 'city', 'documentNumber'];
+             formFields.forEach(fieldId => {
+                 const field = document.getElementById(fieldId);
+                 if (field) {
+                     field.addEventListener('input', checkFormValidity);
+                     field.addEventListener('change', checkFormValidity);
+                 }
+             });
+             
+             // Event listeners para radio buttons e checkbox
+             document.querySelectorAll('input[name="housingType"]').forEach(radio => {
+                 radio.addEventListener('change', checkFormValidity);
+             });
+             
+             document.getElementById('privacyPolicy').addEventListener('change', checkFormValidity);
+            
+                         // Botão de pagamento
+             const paymentBtn = document.getElementById('payment-btn');
+             if (paymentBtn) {
+                 paymentBtn.addEventListener('click', () => {
+                     // Validar formulário
+                     if (!validateForm()) {
+                         showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
+                         return;
+                     }
+                     
+                     const privacyPolicy = document.getElementById('privacyPolicy');
+                     if (!privacyPolicy.checked) {
+                         showNotification('Deve aceitar a política de privacidade para continuar.', 'error');
+                         return;
+                     }
+                     
+                     // Simular processamento de pagamento
+                     paymentBtn.disabled = true;
+                     paymentBtn.textContent = 'Processando...';
+                     
+                     setTimeout(() => {
+                         showConfirmationModal();
+                         paymentBtn.disabled = false;
+                         paymentBtn.textContent = 'Continuar para Pagamento';
+                     }, 2000);
+                 });
+             }
+            
+                         // Função para validar formulário
+             function validateForm() {
+                 const requiredFields = ['firstName', 'lastName', 'email', 'phone', 'address', 'postalCode', 'city'];
+                 const requiredSelects = ['documentType', 'documentNumber'];
+                 const requiredRadios = ['housingType'];
+                 
+                 // Validar campos de texto
+                 const textFieldsValid = requiredFields.every(fieldId => {
+                     const field = document.getElementById(fieldId);
+                     return field && field.value.trim() !== '';
+                 });
+                 
+                 // Validar selects
+                 const selectsValid = requiredSelects.every(fieldId => {
+                     const field = document.getElementById(fieldId);
+                     return field && field.value.trim() !== '';
+                 });
+                 
+                 // Validar radio buttons
+                 const radiosValid = requiredRadios.every(name => {
+                     const radio = document.querySelector(`input[name="${name}"]:checked`);
+                     return radio;
+                 });
+                 
+                 return textFieldsValid && selectsValid && radiosValid;
+             }
+            
+            // Função para mostrar modal de confirmação
+            function showConfirmationModal() {
+                const modal = document.getElementById('confirmation-modal');
+                if (modal) {
+                    modal.classList.remove('hidden');
+                }
+            }
+            
+            // Event listeners para botões do modal
+            document.getElementById('view-order')?.addEventListener('click', () => {
+                // Aqui poderia redirecionar para uma página de detalhes do pedido
+                alert('Funcionalidade de detalhes do pedido será implementada em breve!');
+            });
+            
+            document.getElementById('continue-shopping')?.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+            
+            // Fechar modal ao clicar fora
+            document.getElementById('confirmation-modal')?.addEventListener('click', (e) => {
+                if (e.target.id === 'confirmation-modal') {
+                    e.target.classList.add('hidden');
+                }
+            });
+            
+                         // Inicializar página
+             renderCartItems();
+             updateOrderSummary();
+             checkFormValidity();
+            
+                         // Auto-preenchimento para demonstração
+             if (cart.items.length > 0) {
+                 document.getElementById('firstName').value = 'João';
+                 document.getElementById('lastName').value = 'Silva';
+                 document.getElementById('email').value = 'joao.silva@email.com';
+                 document.getElementById('phone').value = '+351 912 345 678';
+                 document.getElementById('address').value = 'Rua das Flores N.º 10, 1º esq';
+                 document.getElementById('postalCode').value = '1000-065';
+                 document.getElementById('city').value = 'Lisboa';
+                 document.getElementById('documentNumber').value = '123456789';
+                 
+                 // Selecionar opções padrão
+                 document.querySelector('input[name="housingType"][value="apartment"]').checked = true;
+                 document.getElementById('documentType').value = 'NIF';
+             }
+        });
+    </script>
+</body>
+</html>

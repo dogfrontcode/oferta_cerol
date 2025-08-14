@@ -1,44 +1,39 @@
-# IKEA BRIMNES - Página de Produto
+# BRIMNES - Estrutura Cama com Arrumação
 
-Página de produto simples para a cama BRIMNES da IKEA, desenvolvida com HTML, CSS e JavaScript.
+## Funcionalidades Implementadas
 
-## Estrutura do Projeto
+### Seleção de Dimensões
+A página agora permite escolher entre duas dimensões diferentes para a estrutura de cama BRIMNES:
 
-```
-cerolmonkey/
-├── index.html          # Página principal
-├── css/                # Estilos CSS
-├── js/                 # Scripts JavaScript  
-├── images/             # Imagens do produto
-├── favicon.ico         # Favicon
-├── ikea.svg           # Logo IKEA
-└── README.md          # Documentação
-```
+- **140x200 cm** - Preço: 199€
+- **160x200 cm** - Preço: 229€
 
-## Tecnologias Utilizadas
+### Como Funciona
+1. **Botões de Dimensões**: Clique nos botões para selecionar a dimensão desejada
+2. **Atualização Automática**: O preço principal e o preço do estrado de ripas são atualizados automaticamente
+3. **Feedback Visual**: Uma mensagem de confirmação aparece quando as dimensões são alteradas
+4. **Estrado de Ripas**: O preço do estrado LURÖY também é atualizado conforme a dimensão selecionada
 
-- HTML5 semântico
-- CSS3 com Tailwind CSS
-- JavaScript vanilla
+### Características Técnicas
+- **Preços das Estruturas**: Diferença de 30€ entre as dimensões
+- **Preços dos Estrados**: 40€ para 140x200 cm, 50€ para 160x200 cm
+- **Interface Responsiva**: Funciona em dispositivos móveis e desktop
+- **Animações Suaves**: Transições visuais para melhor experiência do usuário
+
+### Estrutura dos Arquivos
+- `index.html` - Estrutura HTML com os botões de dimensões
+- `js/main.js` - Lógica JavaScript para a funcionalidade
+- `css/` - Estilos CSS para a aparência
+
+### Como Testar
+1. Abra o arquivo `index.html` no navegador
+2. Clique nos botões de dimensões (140x200 cm ou 160x200 cm)
+3. Observe as mudanças nos preços e na interface
+4. Verifique se a mensagem de confirmação aparece
+
+### Tecnologias Utilizadas
+- HTML5
+- CSS3 (com Tailwind CSS)
+- JavaScript ES6+
 - Design responsivo
-
-## Como Executar
-
-1. Abra o arquivo `index.html` em qualquer navegador web moderno
-2. O projeto não requer servidor - funciona diretamente no browser
-
-## Funcionalidades
-
-- Galeria de imagens interativa
-- Seleção de variações do produto
-- Modal de código postal
-- Design responsivo para mobile e desktop
-- Interface totalmente em português
-
-## Boas Práticas Aplicadas
-
-- Estrutura de diretórios limpa e organizada
-- Código HTML semântico
-- Caminhos relativos otimizados
-- Design mobile-first
-- Acessibilidade considerada
+- Animações CSS

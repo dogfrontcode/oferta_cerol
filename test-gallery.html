@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="utf-8">
+    <title>Teste Galeria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">Teste da Galeria de Imagens</h1>
+        
+        <!-- Imagem Principal -->
+        <div class="mb-8">
+            <img id="mainImage" 
+                 src="images/brimnes-estrutura-cama-c-arrumacao-branco__1151024_pe884762_s5.jpg" 
+                 alt="Imagem Principal" 
+                 class="w-full h-96 object-cover rounded-lg shadow-lg">
+        </div>
+        
+        <!-- Botões de Navegação -->
+        <div class="flex justify-center space-x-4 mb-8">
+            <button id="prevBtn" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+                ← Anterior
+            </button>
+            <button id="nextBtn" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600">
+                Próximo →
+            </button>
+        </div>
+        
+        <!-- Miniaturas -->
+        <div class="grid grid-cols-6 gap-4">
+            <div class="thumbnail-container cursor-pointer">
+                <img src="images/brimnes-estrutura-cama-c-arrumacao-branco__1151024_pe884762_s5.jpg" 
+                     alt="Vista 1" 
+                     class="w-full h-20 object-cover rounded-lg border-2 border-blue-500 thumbnail"
+                     data-main="images/brimnes-estrutura-cama-c-arrumacao-branco__1151024_pe760137_s5.jpg"
+                     data-index="0">
+            </div>
+            
+            <div class="thumbnail-container cursor-pointer">
+                <img src="images/brimnes-estrutura-cama-c-arrumacao-branco__0780630_pe760137_s5.jpg" 
+                     alt="Vista 2" 
+                     class="w-full h-20 object-cover rounded-lg border-2 border-transparent hover:border-blue-500 thumbnail"
+                     data-main="images/brimnes-estrutura-cama-c-arrumacao-branco__0780630_pe760137_s5.jpg"
+                     data-index="1">
+            </div>
+            
+            <div class="thumbnail-container cursor-pointer">
+                <img src="images/brimnes-estrutura-cama-c-arrumacao-branco__0800869_ph163683_s5.jpg" 
+                     alt="Vista 3" 
+                     class="w-full h-20 object-cover rounded-lg border-2 border-transparent hover:border-blue-500 thumbnail"
+                     data-main="images/brimnes-estrutura-cama-c-arrumacao-branco__0800869_ph163683_s5.jpg"
+                     data-index="2">
+            </div>
+            
+            <div class="thumbnail-container cursor-pointer">
+                <img src="images/brimnes-estrutura-cama-c-arrumacao-branco__0860776_pe659486_s5.jpg" 
+                     alt="Vista 4" 
+                     class="w-full h-20 object-cover rounded-lg border-2 border-transparent hover:border-blue-500 thumbnail"
+                     data-main="images/brimnes-estrutura-cama-c-arrumacao-branco__0860776_pe659486_s5.jpg"
+                     data-index="3">
+            </div>
+            
+            <div class="thumbnail-container cursor-pointer">
+                <img src="images/brimnes-estrutura-cama-c-arrumacao-branco__0966529_ph175105_s5.jpg" 
+                     alt="Vista 5" 
+                     class="w-full h-20 object-cover rounded-lg border-2 border-transparent hover:border-blue-500 thumbnail"
+                     data-main="images/brimnes-estrutura-cama-c-arrumacao-branco__0966529_ph175105_s5.jpg"
+                     data-index="4">
+            </div>
+            
+            <div class="thumbnail-container cursor-pointer">
+                <img src="images/brimnes-estrutura-cama-c-arrumacao-branco__1101953_pe866879_s5.jpg" 
+                     alt="Vista 6" 
+                     class="w-full h-20 object-cover rounded-lg border-2 border-transparent hover:border-blue-500 thumbnail"
+                     data-main="images/brimnes-estrutura-cama-c-arrumacao-branco__1101953_pe866879_s5.jpg"
+                     data-index="5">
+            </div>
+        </div>
+        
+        <!-- Status -->
+        <div class="mt-8 p-4 bg-white rounded-lg">
+            <h3 class="font-bold mb-2">Status da Galeria:</h3>
+            <div id="status">Carregando...</div>
+        </div>
+    </div>
+
+    <script>
+        // Teste simples da galeria
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const status = document.getElementById('status');
+            
+            let currentIndex = 0;
+            
+            function updateStatus(message) {
+                status.innerHTML += '<br>' + message;
+                console.log(message);
+            }
+            
+            updateStatus('Galeria carregada!');
+            updateStatus(`Total de miniaturas: ${thumbnails.length}`);
+            
+            // Função para trocar imagem
+            function changeImage(index) {
+                if (index >= 0 && index < thumbnails.length) {
+                    const thumbnail = thumbnails[index];
+                    const newSrc = thumbnail.dataset.main;
+                    
+                    mainImage.src = newSrc;
+                    currentIndex = index;
+                    
+                    // Atualizar bordas
+                    thumbnails.forEach((thumb, i) => {
+                        if (i === index) {
+                            thumb.classList.add('border-blue-500');
+                            thumb.classList.remove('border-transparent');
+                        } else {
+                            thumb.classList.remove('border-blue-500');
+                            thumb.classList.add('border-transparent');
+                        }
+                    });
+                    
+                    updateStatus(`Imagem alterada para índice ${index}: ${newSrc}`);
+                }
+            }
+            
+            // Event listeners para miniaturas
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', function() {
+                    updateStatus(`Miniatura ${index} clicada!`);
+                    changeImage(index);
+                });
+            });
+            
+            // Event listeners para botões
+            prevBtn.addEventListener('click', function() {
+                const newIndex = currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 1;
+                updateStatus(`Botão anterior clicado, indo para índice ${newIndex}`);
+                changeImage(newIndex);
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                const newIndex = currentIndex < thumbnails.length - 1 ? currentIndex + 1 : 0;
+                updateStatus(`Botão próximo clicado, indo para índice ${newIndex}`);
+                changeImage(newIndex);
+            });
+            
+            updateStatus('Event listeners configurados!');
+            updateStatus('Teste concluído - clique nas miniaturas ou botões!');
+        });
+    </script>
+</body>
+</html>
